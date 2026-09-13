@@ -5,6 +5,7 @@
  *      Author: 1002s
  */
 #include "stm32f446xx.h"
+#include "pwm.h"
 /*
  * Center Align PWM
  * TIM1 ch1,2,3 3개 사용
@@ -44,10 +45,9 @@ void init_pwm(void) {
 	// TIM param configuartion
 	TIM1->PSC=1; //TIM1CLK 54Mhz
 	TIM1->ARR=1349;
-	TIM1->CCMR1=0x7878;//ch1,2 OC1M은 PWM2모드 이다.
-	TIM1->CCMR2=0x78;//ch3,4중 ch3만 config(3상인버터니까)
-	TIM1->CCER=0x555;
-	TIM1->BDTR|=TIM_BDTR_MOE|180;
+	TIM1->CCMR1=0x7878;//ch1,2(OC1M, OC2M 사용)
+	TIM1->CCER=0x55;
+	TIM1->BDTR|=180|TIM_BDTR_MOE;
 	TIM1->DIER=0x1;
 	TIM1->CR1=0x65;
 

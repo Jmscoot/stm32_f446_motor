@@ -8,6 +8,6 @@
 #ifndef INC_PWM_H_
 #define INC_PWM_H_
 
-
+void init_pwm(void);
 
 #endif /* INC_PWM_H_ */
