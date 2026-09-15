@@ -11,6 +11,7 @@
 #include "stm32f446xx.h"
 
 #define TEST_MODE_PWM 1
+#define TEST_MODE_UART 2
 #define TEST_MODE TEST_MODE_PWM
 
 
@@ -23,5 +24,7 @@ int main(){
 		TIM1->CCR1=500;
 		TIM1->CCR2 =200;
 	}
+#elif TEST_MODE==TEST_MODE_UART
+
 #endif
 }
